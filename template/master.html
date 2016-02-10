@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Black Berry
+Description: A fixed-width design suitable for small sites and blogs.
+Version    : 1.0
+Released   : 20071215
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>TurnOut Web</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="template/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+		<script type="text/javascript">
+
+
+			function validate_upload() {
+				var fup = document.getElementById('file');
+				var fileName = fup.value;
+				var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+
+				if( ext == 'jpg' || ext == 'JPG' || ext == 'jpeg' || ext == 'JPEG' || ext == 'png' || ext == 'PNG' || ext == 'gif' || ext == 'GIF' || ext == 'doc' || ext == 'docx' || ext == 'txt' || ext == 'doc') {
+					return true;
+				} 
+
+				alert("Only Image, Text and Microsoft Word files may be uploaded!");
+				return false;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<h1><a href="#">turnout web</a></h1>
+				<h2>Secure Grade Management</h2>
+			</div>
+		</div>
+		
+		<div id="menu-wrap">
+			<div id="menu">
+				<ul>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="login.php?redirect=students.php">Students</a></li>
+					<li><a href="login.php?redirect=staff.php">Staff</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<hr />
+
+		<div id="latest-post-wrap">
+			<div id="latest-post" class="post">
+				{content}
+			</div>
+		</div>
+		
+		<hr />
+
+		<div id="footer">
+			<p class="legal">&copy;2007 All Rights Reserved. Designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+		</div>
+
+		</body>
+</html>

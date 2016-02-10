@@ -1,0 +1,16 @@
+<div id="content">
+	<div id="recent-posts">
+		<br />
+		{upload_error}
+		<h4>Assignment: {assignment}</h4>
+		<form method="post" action="students.php" enctype='multipart/form-data' onsubmit="return validate_upload();">
+			
+			<input type="file" name="file" />
+			<input type="hidden" name="assignment" value="{assignment}" />
+			<input type="hidden" name="action" value="upload" />
+			<br />
+			<input type="submit" value="Upload" />
+		</form>
+		<br />
+	</div>
+</div>

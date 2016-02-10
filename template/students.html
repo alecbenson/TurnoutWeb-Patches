@@ -1,0 +1,49 @@
+<!-- INCLUDE BLOCK : upload -->
+
+<p class="byline"><span>Welcome {username}.</span></p>
+
+<div class="entry">
+	<form action="students.php" method="post" name=frmCourse>
+		<table>
+			<tr>
+				<td><b>Course:</b></td>
+				<td>
+					{course_select_box}
+					<input type="hidden" name="action" value="course_change" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</p>
+
+<h1 class="title"><a href="#">{course}</a></h1>
+
+<div class="entry">	
+	<table id="hor-minimalist-b">
+		<thead>
+			<tr>
+				<th scope="col">Assignment</th>
+				<th scope="col">Score</th>
+				<th scope="col">Base</th>
+				<th scope="col">Weight</th>
+				<th scope="col">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+			<!-- START BLOCK : grade_blk -->
+			<tr>
+				<td>{g_title}</td>
+				<td>{g_score}</td>
+				<td>{g_base}</td>
+				<td>{g_weight}</td>
+				<td>
+					<form action="students.php" method="post"><input type="hidden" name="action" value="upload" /><input type="submit" name="submit" value="Upload" {g_upload} /><input type="hidden" name="assignment" value="{g_id}" /></form>
+					{g_download}
+				</td>
+			</tr>
+			<!-- END BLOCK : grade_blk --> 
+			
+		</tbody>
+	</table>
+</div>
