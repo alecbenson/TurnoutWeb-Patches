@@ -1,0 +1,4 @@
+<Directory /var/www/uploads>
+	ForceType 'text/plain'
+</Directory>
+
