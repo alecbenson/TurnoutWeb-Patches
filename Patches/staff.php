@@ -129,7 +129,7 @@
 	function gen_course_select_box($db) {
 		$course_select_box = '<select name="course" onChange="frmCourse.submit();"><option value="" selected>Select Course</option>';
 		foreach(get_user_courses($db) as $row) {
-			$course_select_box .= "<option value='".$row['courseID']."'>".$row['courseTitle']."</option>";
+			$course_select_box .= "<option value='".htmlspecialchars($row['courseID'], ENT_QUOTES, 'UTF-8')."'>".htmlspecialchars($row['courseTitle'], ENT_QUOTES, 'UTF-8')."</option>";
 		}
 		$course_select_box .= '</select>';
 		
@@ -158,7 +158,7 @@
 	function gen_student_select_box($db, $courseID) {
 		$course_select_box = '<select name="student" onChange="frmStudent.submit();"><option value="" selected>Select Student</option>';
 		foreach(get_course_students($db, $courseID) as $row) {
-			$course_select_box .= "<option value='".$row['userID']."'>".$row['userName']."</option>";
+			$course_select_box .= "<option value='".htmlspecialchars($row['userID'], ENT_QUOTES, 'UTF-8')."'>".htmlspecialchars($row['userName'], ENT_QUOTES, 'UTF-8')."</option>";
 		}
 		$course_select_box .= '</select>';
 		
@@ -231,7 +231,7 @@
 				$tpl->assign('g_upload', 'disabled');
 				$tpl->assign('g_download', 'Download');
 			} else {
-				$tpl->assign('g_download', '<a href="' . $grade['gradeFile'] . '">Download</a>');
+				$tpl->assign('g_download', '<a href="' .htmlspecialchars($row['gradeFile'], ENT_QUOTES, 'UTF-8'). '">Download</a>');
 			}
 		}
 		
@@ -268,7 +268,7 @@
 			}
 			
 			$assnID = $assn['assignmentID'];
-			$tpl->assign('g_download', '<a href="staff.php?delete='.$assnID.'">Delete</a>');
+			$tpl->assign('g_download', '<a href="staff.php?delete='.htmlspecialchars($row['assnID'], ENT_QUOTES, 'UTF-8').'">Delete</a>');
 			
 		}
 		
