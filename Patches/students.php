@@ -177,7 +177,6 @@
 			$db->sql_prepare("SELECT * FROM grades WHERE gradeAssignment = ? and gradeUser = ? LIMIT 1");
 			$db->sql_execute(array($assnID, $user));
 			$grade = $db->sql_fetchrow();
-			print_r($grade);
 
 			$tpl->assign('g_score', $grade['gradeScore']);
 
