@@ -103,7 +103,6 @@ class mysql{
 			self::$result = self::$db->query($sql);
 			if(!self::$result){
 				die(var_export(self::$db->errorinfo(), TRUE));
-			 	//die("Could not run sql query.<br/>".$sql);
 			}
 			return self::$result;
 		}else{
@@ -125,6 +124,22 @@ class mysql{
 	static function sql_error()
 	{
 		return mysql_error();
+	}
+	static function sql_prepare($sql){
+		if($sql){
+			$stmt = self::$db->prepare($sql);
+			self::$result = $stmt;
+			return self::$result;
+		} else{
+			return false;
+		}
+	}
+	static function sql_execute($params){
+		if(!self::$result){
+			return false;
+		} else{
+			return self::$result->execute($params);
+		}
 	}
 }
 ?>
